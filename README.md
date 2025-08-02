@@ -9,12 +9,12 @@
 
 
 ### Team Members
-- Team Lead: [Name] - [College]
-- Member 2: [Name] - [College]
+- Team Lead: [A S BHARATHLAL] - [COLLAGE OG ENGINERING KARUNAGAPPALLY]
+- Member 2: [PAVANJITH P S] - [COLLAGE OG ENGINERING KARUNAGAPPALLY]
 - Member 3: [Name] - [College]
 
 ### Project Description
-[2-3 lines about what your project does]
+[This project is mainly focused on the nothing much gussing the name name of the person by food item ]
 
 ### The Problem (that doesn't exist)
 [What ridiculous problem are you solving?]
@@ -23,20 +23,9 @@
 [How are you solving it? Keep it fun!]
 
 ## Technical Details
-### Technologies/Components Used
-For Software:
-- [Languages used]
-- [Frameworks used]
-- [Libraries used]
-- [Tools used]
-
-For Hardware:
-- [List main components]
-- [List specifications]
-- [List tools required]
 
 ### Implementation
-For Software:
+For Software:vs code
 # Installation
 [commands]
 
