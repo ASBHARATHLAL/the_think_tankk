@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+  <meta charset="UTF-8">
+  <title>ഓരോ അരിയിലും അത് കഴിക്കുന്ന ആളുടെ പേര് എഴുതിയിട്ടുണ്ട്.</title>
+  <style>
+    body {
+      font-family: 'Noto Sans Malayalam', sans-serif;
+      text-align: center;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      margin: 0;
+      padding: 20px;
+      min-height: 100vh;
+      color: white;
+    }
+    
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 30px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    h1 {
+      color: #fff;
+      margin-bottom: 30px;
+      font-size: 1.8em;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .step {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 15px;
+      padding: 20px;
+      margin: 20px 0;
+      border-left: 4px solid #ffd700;
+    }
+    
+    .step-number {
+      background: #ffd700;
+      color: #333;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+    
+    .step-title {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    
+    /* Step 1 - File Upload */
+    .upload-btn {
+      background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 25px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    
+    .upload-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+    
+    #fileInput {
+      display: none;
+    }
+    
+    /* Step 2 - Drag and Drop Zone */
+    #dropZone {
+      width: 100%;
+      height: 150px;
+      border: 3px dashed rgba(255,255,255,0.5);
+      border-radius: 15px;
+      margin: 15px 0;
+      line-height: 150px;
+      color: rgba(255,255,255,0.8);
+      font-size: 1.1em;
+      background: rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    #dropZone:hover, #dropZone.drag-over {
+      border-color: #ffd700;
+      background: rgba(255, 215, 0, 0.1);
+      color: #ffd700;
+    }
+    
+    /* Image Display */
+    #uploadedImage {
+      max-width: 100%;
+      max-height: 300px;
+      border-radius: 15px;
+      margin: 20px 0;
+      display: none;
+      border: 3px solid rgba(255,255,255,0.3);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+    
+    /* Random Name Display */
+    #randomName {
+      font-size: 1.8em;
+      margin-top: 25px;
+      color: #e015b8;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      background: rgba(0,0,0,0.2);
+      padding: 15px;
+      border-radius: 15px;
+      display: none;
+    }
+    
+    .loading {
+      display: none;
+      color: #ff0000;
+      font-size: 1.2em;
+      margin: 20px 0;
+    }
+    
+    .spinner {
+      border: 3px solid rgba(33, 98, 209, 0.3);
+      border-radius: 50%;
+      border-top: 3px solid #ff001e;
+      width: 30px;
+      height: 30px;
+      animation: spin 1s linear infinite;
+      display: inline-block;
+      margin-right: 10px;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .success-animation {
+      animation: bounce 0.6s ease-in-out;
+    }
+    
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-10px); }
+      60% { transform: translateY(-5px); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+   
+    <h1>🖼️ ഓരോ അരിയിലും അത് കഴിക്കുന്ന ആളുടെ പേര് എഴുതിയിട്ടുണ്ട്.! 🔊</h1>
+    <h2></h2> ഫോട്ടോ അപ്‌ലോഡ് ചെയ്താല് അത് അത് കഴിക്കണ്ടവന്റെ പേര് അതിൽ കാണും</h2>
+    <!-- Step 1: File Upload -->
+     <br>
+
+    <div class="upload-options">
+      <button class="upload-btn" onclick="document.getElementById('fileInput').click()">
+          📁 Upload Photo
+      
+      <input type="file" id="fileInput" accept="image/*">
+    </div>
+    
+    <!-- Step 2: Drag and Drop -->
+    <div class="step">
+      <div class="step-title">
+        <span class="step-number">2</span>
+        അല്ലെങ്കിൽ ഇവിടെ വലിച്ചിട്ടുക
+      </div>
+      <div id="dropZone">📸 ചിത്രം ഇവിടെ വലിച്ചിട്ട് ഇടുക</div>
+    </div>
+    
+    <!-- Loading Animation -->
+    <div class="loading" id="loading">
+      <div class="spinner"></div>
+      പേര് കണ്ടെത്തുന്നു...
+    </div>
+    
+    <!-- Uploaded Image -->
+    <img id="uploadedImage" src="#" alt="Uploaded Image">
+    
+    <!-- Random Name Display -->
+    <div id="randomName"></div>
+  </div>
+
+  <script>
+    const names = [
+      "സുന്ദരൻ കേശു",
+      "Harinanda", 
+      "പിണറായി ജോണി",
+      "ബോറൻ ഷാജി",
+      " രവി",
+      "കുഞ്ഞപ്പൻ",
+      " ബാബു",
+      "devika",
+      "ashik",
+      "അലസനായ അനൂപ്",
+      " രാജു",
+      " സുരേഷ്",
+      " മുരളി",
+      "സുധീർ",
+      " രാമൻ"
+    ];
+    
+    let currentName = "";
+    
+    function getRandomName() {
+      const randomIndex = Math.floor(Math.random() * names.length);
+      return names[randomIndex];
+    }
+    
+    function speakName(text) {
+      if ('speechSynthesis' in window) {
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = "ml-IN";
+        utterance.rate = 0.8;
+        utterance.pitch = 1.1;
+        window.speechSynthesis.speak(utterance);
+      }
+    }
+    
+    function showNameAndSpeak() {
+      const loading = document.getElementById("loading");
+      const nameDiv = document.getElementById("randomName");
+      
+      // Show loading
+      loading.style.display = "block";
+      
+      // Simulate processing time for dramatic effect
+      setTimeout(() => {
+        loading.style.display = "none";
+        
+        currentName = getRandomName();
+        nameDiv.textContent = "🎯 " + currentName;
+        nameDiv.style.display = "block";
+        nameDiv.classList.add("success-animation");
+        
+        // Speak the name
+        speakName(currentName);
+        
+        // Remove animation class after animation completes
+        setTimeout(() => {
+          nameDiv.classList.remove("success-animation");
+        }, 600);
+      }, 1500);
+    }
+    
+    function handleImageUpload(file) {
+      if (file && file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onload = function (event) {
+          const uploadedImage = document.getElementById('uploadedImage');
+          uploadedImage.src = event.target.result;
+          uploadedImage.style.display = "block";
+          showNameAndSpeak();
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+    
+    // File input handler
+    document.getElementById('fileInput').addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      handleImageUpload(file);
+    });
+    
+    // Drag and drop handlers
+    const dropZone = document.getElementById('dropZone');
+    
+    dropZone.addEventListener('dragover', function (e) {
+      e.preventDefault();
+      dropZone.classList.add('drag-over');
+    });
+    
+    dropZone.addEventListener('dragleave', function () {
+      dropZone.classList.remove('drag-over');
+    });
+    
+    dropZone.addEventListener('drop', function (e) {
+      e.preventDefault();
+      dropZone.classList.remove('drag-over');
+      const file = e.dataTransfer.files[0];
+      handleImageUpload(file);
+    });
+    
+    // Click to upload on drop zone
+    dropZone.addEventListener('click', function() {
+      document.getElementById('fileInput').click();
+    });
+  </script>
+</body>
+</html>
