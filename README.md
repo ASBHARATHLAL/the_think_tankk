@@ -1,11 +1,11 @@
 <img width="3188" height="1202" alt="frame (3)" src="https://github.com/user-attachments/assets/517ad8e9-ad22-457d-9538-a9e62d137cd7" />
 
 
-# [Project Name] 🎯
+# [ഓരോ അരിയിലും അത് കഴിക്കുന്ന ആളുടെ പേര് എഴുതിയിട്ടുണ്ട്] 🎯
 
 
 ## Basic Details
-### Team Name: [Name]
+### Team Name: [THE THINK TANK]
 
 
 ### Team Members
@@ -36,27 +36,20 @@ For Software:vs code
 For Software:
 
 # Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
+![Screenshot1](Add s![WhatsApp Image 2025-08-02 at 08 00 51_9757df1a](https://github.com/user-attachments/assets/c3077494-07da-4feb-bef3-36465c98eda4)
+creenshot 1 here with proper name)
 *Add caption explaining what this shows*
 
-![Screenshot2](Add screenshot 2 here with proper name)
+![Screenshot2](Add <img width="1920" height="1080" alt="Screenshot 2025-08-02 080724" src="https://github.com/user-attachments/assets/2eaf5168-fa89-4320-8f1e-7d94eaca12ef" />
+ 2 here with proper name)
 *Add caption explaining what this shows*
 
 ![Screenshot3](Add screenshot 3 here with proper name)
 *Add caption explaining what this shows*
 
-# Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*Add caption explaining your workflow*
 
-For Hardware:
 
-# Schematic & Circuit
-![Circuit](Add your circuit diagram here)
-*Add caption explaining connections*
 
-![Schematic](Add your schematic diagram here)
-*Add caption explaining the schematic*
 
 # Build Photos
 ![Components](Add photo of your components here)
@@ -70,7 +63,7 @@ For Hardware:
 
 ### Project Demo
 # Video
-[Add your demo video link here]
+[Add https://drive.google.com/file/d/1jS6Y3h7efL7ZDxXQp4O4IBupLlwqeLao/view?usp=sharing demo video link here]
 *Explain what the video demonstrates*
 
 # Additional Demos
